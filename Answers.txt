@@ -1,0 +1,17 @@
+Q:Given the current data identify which features impact the accuracy of deliveries and
+suggest which features to optimize in order to improve this.
+
+A: Based on the Random Forest model output:
+- the location of the scheduled delivery is the strongest feature among all others, hence heavily impacting the accuracy of the deliveries. A suggestion is to do further EDA to identify these problematic "clusters" to improve delivery destination proximity.
+- Delivery hour is the second most impactful feature, which implies that certain hours might dictate the performance of the delivery accuracy. Again, EDA on an hourly level can identify the most problematic timies wrt to large distance between scheduled and delivered destinations
+- driver_id is the third strongest feature, which implies that the driver has a strong impact on how accurate the final delivery destination will be. EDA on a driver level can identify the highest average straight line distance per driver and he can be recalled for further training.
+
+Q:Given the current data predict the accuracy of the “delivery coordinate” with a max
+geographic error of 500 metres.
+
+A: Output in the script + Model code
+
+Q: How would you minimize the time taken to train the model if you have to make an online
+model?
+
+A: A logistic regression model can be built that will have the same features identified by the ML model. Live information such as scheduled coordinates, driver assigned to this delivery and time-related features can be fed into this model, then the result of the delivery "accuracy" can be a simple binary output that will indicate "accurate delivery" or "inaccurate delivery"
